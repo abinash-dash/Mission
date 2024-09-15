@@ -68,7 +68,10 @@ class TestDatabase {
 	@Test
 	public void testDatabaseUpdateMission() {
 		// retrieves the mission and fields
-		List<Mission> missions = da.getMissions("Johnny English");		
+		List<Mission> missions = da.getMissions("Johnny English");
+		if (missions.isEmpty()) {
+        	fail("No missions found in the database.");
+    		}
 		Mission mission = missions.get(0);
 		Long id = mission.getId();
 		
